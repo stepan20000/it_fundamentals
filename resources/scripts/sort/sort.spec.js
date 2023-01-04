@@ -1,5 +1,5 @@
 import { generateRandomNumber } from '../helpers.js';
-import { bubbleSort, browserSort, countingSort } from './index.js';
+import { bubbleSort, browserSort, countingSort, heapSort } from './index.js';
 
 describe('sorting', () => {
   let arrToSort;
@@ -21,7 +21,7 @@ describe('sorting', () => {
     });
   });
 
-  fdescribe('countingSort', () => {
+  describe('countingSort', () => {
     it('should sort array', () => {
       expect(countingSort([...arrToSort])).toEqual(browserSort(arrToSort))
     });
@@ -42,6 +42,27 @@ describe('sorting', () => {
   
     it('should sort one element array', () => {
       expect(countingSort([1])).toEqual([1]);
+    });
+  });
+
+  describe('heapSort', () => {
+    it('should sort simple array', () => {
+      arrToSort = [2, 8, 5, 3, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+
+      expect(heapSort([...arrToSort])).toEqual(sortedArray);
+    });
+
+    it('should sort array', () => {
+      expect(heapSort([...arrToSort])).toEqual(browserSort(arrToSort))
+    });
+
+    it('should sort empty array', () => {
+      expect(heapSort([])).toEqual([]);
+    });
+
+    it('should sort one element array', () => {
+      expect(heapSort([1])).toEqual([1]);
     });
   });
 });

@@ -1,11 +1,8 @@
+import { swap } from "../helpers.js";
+
 export const bubbleSort = arr => {
   let maxIndex = arr.length - 1;
   let elementsWereReplaced;
-  const replaceElements = i => {
-    const temp = arr[i];
-    arr[i] = arr[i + 1];
-    arr[i + 1] = temp;
-  };
 
   const goThroughArray = () => {
     elementsWereReplaced = false;
@@ -13,7 +10,7 @@ export const bubbleSort = arr => {
     for(let i = 0; i < maxIndex; i++) {
       if (arr[i] > arr[i + 1]) {
         elementsWereReplaced = true;
-        replaceElements(i);
+        swap(arr, i, i + 1);
       }
     }
     maxIndex--;

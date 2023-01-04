@@ -1,5 +1,5 @@
 import { generateRandomNumber } from "./helpers.js";
-import { bubbleSort, browserSort, countingSort } from "./sort/index.js";
+import { bubbleSort, browserSort, countingSort, heapSort } from "./sort/index.js";
 
 let arrToSort = [];
 const arrayLengthInput = document.getElementById('arrayLengthInput');
@@ -72,7 +72,7 @@ const paintTable = rows => {
   table.appendChild(tbody);
 };
 
-const sortingFunctions = [bubbleSort, browserSort, countingSort];
+const sortingFunctions = [bubbleSort, browserSort, countingSort, heapSort];
 const operationsChainFunctions = [getFunctionToTest, getSortingData];
   
 processButton.addEventListener('click', () => {

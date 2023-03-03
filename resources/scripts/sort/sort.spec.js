@@ -1,5 +1,12 @@
 import { generateRandomNumber } from '../helpers.js';
-import { bubbleSort, browserSort, countingSort, heapSort } from './index.js';
+import { 
+  bubbleSort,
+  browserSort, 
+  countingSort, 
+  heapSort,
+  insertionSort,
+  mergeSort,
+ } from './index.js';
 
 describe('sorting', () => {
   let arrToSort;
@@ -18,6 +25,20 @@ describe('sorting', () => {
 
     it('should sort one element array', () => {
       expect(bubbleSort([1])).toEqual([1]);
+    });
+
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
     });
   });
 
@@ -43,6 +64,20 @@ describe('sorting', () => {
     it('should sort one element array', () => {
       expect(countingSort([1])).toEqual([1]);
     });
+
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
   });
 
   describe('heapSort', () => {
@@ -63,6 +98,90 @@ describe('sorting', () => {
 
     it('should sort one element array', () => {
       expect(heapSort([1])).toEqual([1]);
+    });
+
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+  });
+
+  describe('insertionSort', () => {
+    it('should sort simple array', () => {
+      arrToSort = [2, 8, 5, 3, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+
+      expect(insertionSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should sort array', () => {
+      expect(insertionSort([...arrToSort])).toEqual(browserSort(arrToSort))
+    });
+
+    it('should sort empty array', () => {
+      expect(insertionSort([])).toEqual([]);
+    });
+
+    it('should sort one element array', () => {
+      expect(insertionSort([1])).toEqual([1]);
+    });
+
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+  });
+
+  describe('mergeSort', () => {
+    it('should sort simple array', () => {
+      arrToSort = [2, 8, 5, 3, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(mergeSort(arrToSort)).toEqual(sortedArray);
+    });
+
+    it('should sort array', () => {
+      expect(insertionSort([...arrToSort])).toEqual(browserSort(arrToSort))
+    });
+
+    it('should sort empty array', () => {
+      expect(insertionSort([])).toEqual([]);
+    });
+
+    it('should sort one element array', () => {
+      expect(insertionSort([1])).toEqual([1]);
     });
   });
 });

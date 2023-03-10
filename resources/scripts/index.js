@@ -5,7 +5,10 @@ import {
   countingSort,
   heapSort, 
   insertionSort, 
-  mergeSort, 
+  mergeSort,
+  quickSortPivotLast,
+  quickSortMedianOfTree, 
+  selectionSort,
 } from "./sort/index.js";
 
 let arrToSort = [];
@@ -79,7 +82,17 @@ const paintTable = rows => {
   table.appendChild(tbody);
 };
 
-const sortingFunctions = [bubbleSort, browserSort, countingSort, heapSort, insertionSort, mergeSort];
+const sortingFunctions = [
+  bubbleSort, 
+  browserSort, 
+  countingSort, 
+  heapSort, 
+  insertionSort, 
+  mergeSort,
+  quickSortPivotLast,
+  quickSortMedianOfTree,
+  selectionSort,
+];
 const operationsChainFunctions = [getFunctionToTest, getSortingData];
   
 processButton.addEventListener('click', () => {

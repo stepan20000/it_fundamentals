@@ -51,5 +51,7 @@ const mergeSortPrivate = (arr,l, r) => {
     merge(arr,l,m,r);
   }
   
-  mergeSortPrivate(arr, 0, arr.length - 1)
+  mergeSortPrivate(arr, 0, arr.length - 1);
+  
+  return arr;
 } 

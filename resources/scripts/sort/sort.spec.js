@@ -6,7 +6,10 @@ import {
   heapSort,
   insertionSort,
   mergeSort,
- } from './index.js';
+  quickSortPivotLast,
+  quickSortMedianOfTree,
+  selectionSort,
+} from './index.js';
 
 describe('sorting', () => {
   let arrToSort;
@@ -182,6 +185,114 @@ describe('sorting', () => {
 
     it('should sort one element array', () => {
       expect(insertionSort([1])).toEqual([1]);
+    });
+  });
+
+  describe('quickSort', () => {
+    describe('quickSortPivotLast', () => {
+      it('should sort simple array', () => {
+        arrToSort = [2, 8, 5, 3, 9, 10];
+        const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+        expect(quickSortPivotLast(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should sort two elements array', () => {
+        arrToSort = [2, 1];
+        const sortedArray = [1, 2];
+        
+        expect(quickSortPivotLast(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should not sort sorted simple arr', () => {
+        arrToSort = [2, 3, 5, 8, 9, 10];
+        const sortedArray = [2, 3, 5, 8, 9, 10];
+        
+        expect(quickSortPivotLast(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should sort array', () => {
+        expect(quickSortPivotLast([...arrToSort])).toEqual(browserSort(arrToSort))
+      });
+    
+      it('should sort empty array', () => {
+        expect(quickSortPivotLast([])).toEqual([]);
+      });
+    
+      it('should sort one element array', () => {
+        expect(quickSortPivotLast([1])).toEqual([1]);
+      });
+    });
+
+    describe('quickSortMedianOfTree', () => {
+      it('should sort simple array', () => {
+        arrToSort = [2, 8, 5, 3, 9, 10];
+        const sortedArray = [2, 3, 5, 8, 9, 10];
+        
+  
+        expect(quickSortMedianOfTree(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should sort two elements array', () => {
+        arrToSort = [2, 1];
+        const sortedArray = [1, 2];
+        
+        expect(quickSortMedianOfTree(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should not sort sorted simple arr', () => {
+        arrToSort = [2, 3, 5, 8, 9, 10];
+        const sortedArray = [2, 3, 5, 8, 9, 10];
+        
+        expect(quickSortMedianOfTree(arrToSort)).toEqual(sortedArray);
+      });
+    
+      it('should sort array', () => {
+        expect(quickSortMedianOfTree([...arrToSort])).toEqual(browserSort(arrToSort))
+      });
+    
+      it('should sort empty array', () => {
+        expect(quickSortMedianOfTree([])).toEqual([]);
+      });
+    
+      it('should sort one element array', () => {
+        expect(quickSortMedianOfTree([1])).toEqual([1]);
+      });
+    });
+  });
+
+  describe('selectionSort', () => {
+    it('should sort simple array', () => {
+      arrToSort = [2, 8, 5, 3, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+
+      expect(selectionSort(arrToSort)).toEqual(sortedArray);
+    });
+  
+    it('should sort two elements array', () => {
+      arrToSort = [2, 1];
+      const sortedArray = [1, 2];
+      
+      expect(selectionSort(arrToSort)).toEqual(sortedArray);
+    });
+  
+    it('should not sort sorted simple arr', () => {
+      arrToSort = [2, 3, 5, 8, 9, 10];
+      const sortedArray = [2, 3, 5, 8, 9, 10];
+      
+      expect(selectionSort(arrToSort)).toEqual(sortedArray);
+    });
+  
+    it('should sort array', () => {
+      expect(selectionSort([...arrToSort])).toEqual(browserSort(arrToSort))
+    });
+  
+    it('should sort empty array', () => {
+      expect(selectionSort([])).toEqual([]);
+    });
+  
+    it('should sort one element array', () => {
+      expect(selectionSort([1])).toEqual([1]);
     });
   });
 });
